@@ -1,0 +1,11 @@
+commit b2f4b7fbb179fabcfafcade103ce64610bfbaf1b (HEAD -> master)
+Author: Daria Subbota <daria.subbota@icloud.com>
+Date:   Mon Feb 12 19:03:36 2018 +0300
+
+    add status.txt
+
+commit 47cff443cd5f87718feb104f28d3b7d8a07b00b1
+Author: Daria Subbota <daria.subbota@icloud.com>
+Date:   Mon Feb 12 19:02:31 2018 +0300
+
+    add .gitignore
