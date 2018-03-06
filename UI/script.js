@@ -245,9 +245,6 @@ let result = (function () {
                 }
                 return photoFilterResult.slice(skip, skip + top);
             }
-
-
-
             return photoPosts;
         },
          compareDates: function(a,b) {
