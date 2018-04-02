@@ -3,178 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Positgramm</title>
+    <script src="script.js"></script>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
+
+<!--Я не знаю почему если сразу после body написать header, то он не отображается -->
+<div>
+</div>
+
 <header>
     <div class="posit">
         <h1>Positgramm</h1>
     </div>
-    <welcome>
-        <h3>Добро пожаловать,имя пользователя</h3>
-    </welcome>
-    <div class="exit">
-        <button id="exit">Выход</button>
+    <div class ="welcome">
+        <h3>Добро пожаловать, имя пользователя</h3>
     </div>
+        <button class="exit">Выход</button>
     <a href="#" class="add">Добавить фотографию</a>
 </header>
 <div class="searchBy">
     <input type="submit" class="searchBy" value="Фильтр: ">
-    <input type=search class="searchBy" placeholder="Автор...">
-    <input type="date" class="searchBy" placeholder="ДД/ММ/ГГ">
-    <input type=search class="searchBy" placeholder="#">
+    <input type="search" class="searchBy" placeholder="Автор...">
+    <input type="date"   class="searchBy" placeholder="ДД/ММ/ГГ">
+    <input type="search" class="searchBy" placeholder="#">
     <input type="submit" class="searchBy" value="Ok">
 </div>
 
 <div class="postsFlex">
 
-    <div class="photoFlex">
-        <div class="photo" id="img1">
-            <img src="https://static1.squarespace.com/static/56cc66da20c647ad15b728ca/t/56df42c104426262f9f9e3fd/1457472194360/heart-icon.png" class="like">
-        </div>
-
-        <div class="info">
-            <p> Северный мишка </p>
-            <p> 01.01.18 15:00 </p>
-            <p> #холод </p>
-            <p> Теперь я узнал КАК может быть по настоящему холодно </p>
-            <a href="#" class="change">Редактировать</a>
-            <a href="#" class="delete">Удалить</a>
-        </div>
-    </div>
-
-    <div class="photoFlex">
-        <div class="photo" id="img2">
-            <img src="https://static1.squarespace.com/static/56cc66da20c647ad15b728ca/t/56df42c104426262f9f9e3fd/1457472194360/heart-icon.png" class="like">
-        </div>
-
-        <div class="info">
-            <p> Отпускная </p>
-            <p> 12.01.18 12:31 </p>
-            <p> #вОтпуске </p>
-            <p> Все мерзнут в холодном Минске, а мы на море </p>
-            <a href="#" class="change">Редактировать</a>
-            <a href="#" class="delete">Удалить</a>
-        </div>
-    </div>
-
-    <div class="photoFlex">
-        <div class="photo"id="img3">
-            <img src="https://static1.squarespace.com/static/56cc66da20c647ad15b728ca/t/56df42c104426262f9f9e3fd/1457472194360/heart-icon.png" class="like">
-        </div>
-
-        <div class="info">
-            <p> Милашка </p>
-            <p> 02.07.18 </p>
-            <p> #первыйВыход </p>
-            <p> Первая прогулочка с новым другом</p>
-            <a href="#" class="change">Редактировать</a>
-            <a href="#" class="delete">Удалить</a>
-        </div>
-    </div>
-
-    <div class="photoFlex">
-        <div class="photo" id="img4">
-            <img src="https://static1.squarespace.com/static/56cc66da20c647ad15b728ca/t/56df42c104426262f9f9e3fd/1457472194360/heart-icon.png" class="like">
-        </div>
-
-        <div class="info">
-            <p> Тлен </p>
-            <p> 01.10.17 13:44 </p>
-            <p> #осень </p>
-            <p> Вот и кончилось тепло, добро пожаловать дожди </p>
-            <a href="#" class="change">Редактировать</a>
-            <a href="#" class="delete">Удалить</a>
-        </div>
-    </div>
-    <div class="photoFlex">
-        <div class="photo" id="img5">
-            <img src="https://static1.squarespace.com/static/56cc66da20c647ad15b728ca/t/56df42c104426262f9f9e3fd/1457472194360/heart-icon.png" class="like">
-        </div>
-
-        <div class="info">
-            <p> Мечтательница </p>
-            <p> 12.12.18 </p>
-            <p> #подарок </p>
-            <p> Самый лучший подарок на 18-летие </p>
-            <a href="#" class="change">Редактировать</a>
-            <a href="#" class="delete">Удалить</a>
-        </div>
-    </div>
-    <div class="photoFlex">
-        <div class="photo" id="img6">
-            <img src="https://static1.squarespace.com/static/56cc66da20c647ad15b728ca/t/56df42c104426262f9f9e3fd/1457472194360/heart-icon.png" class="like">
-        </div>
-
-        <div class="info">
-            <p> Путешественник </p>
-            <p> 17.03.15 </p>
-            <p> #прошлое </p>
-            <p> Решил вспомнить прошлое </p>
-            <a href="#" class="change">Редактировать</a>
-            <a href="#" class="delete">Удалить</a>
-        </div>
-    </div>
-    <div class="photoFlex">
-        <div class="photo" id="img7">
-            <img src="https://static1.squarespace.com/static/56cc66da20c647ad15b728ca/t/56df42c104426262f9f9e3fd/1457472194360/heart-icon.png" class="like">
-        </div>
-
-        <div class="info">
-            <p> Астроном </p>
-            <p> 12.01.19 24:00 </p>
-            <p> #впечатления </p>
-            <p> Все фазы лунного цикла, выглядит замечательно </p>
-            <a href="#" class="change">Редактировать</a>
-            <a href="#" class="delete">Удалить</a>
-        </div>
-    </div>
-    <div class="photoFlex">
-        <div class="photo" id="img8">
-            <img src="https://static1.squarespace.com/static/56cc66da20c647ad15b728ca/t/56df42c104426262f9f9e3fd/1457472194360/heart-icon.png" class="like">
-        </div>
-
-        <div class="info">
-            <p> Мария Антуанэтта </p>
-            <p> 04.07.18 16:07 </p>
-            <p> #детскийВострог </p>
-            <p> Решила вспомнить детство </p>
-            <a href="#" class="change">Редактировать</a>
-            <a href="#" class="delete">Удалить</a>
-        </div>
-    </div>
-    <div class="photoFlex">
-        <div class="photo" id="img9">
-            <img src="https://static1.squarespace.com/static/56cc66da20c647ad15b728ca/t/56df42c104426262f9f9e3fd/1457472194360/heart-icon.png" class="like">
-        </div>
-
-        <div class="info">
-            <p> Дзен </p>
-            <p> 18.09.10 16:00 </p>
-            <p> #путешествие </p>
-            <p> Решила все бросить и попутешествовать </p>
-            <a href="#" class="change">Редактировать</a>
-            <a href="#" class="delete">Удалить</a>
-        </div>
-    </div>
-    <div class="photoFlex">
-        <div class="photo" id="img10">
-            <img src="https://static1.squarespace.com/static/56cc66da20c647ad15b728ca/t/56df42c104426262f9f9e3fd/1457472194360/heart-icon.png" class="like">
-        </div>
-
-        <div class="info">
-            <p> Дзен </p>
-            <p> 18.09.10 16:01 </p>
-            <p> #путешествие </p>
-            <p> Море впечатлений  </p>
-            <a href="#" class="change">Редактировать</a>
-            <a href="#" class="delete">Удалить</a>
-        </div>
-    </div>
-
 </div>
-<a href="#" id="more">Загрузить еще...</a>
-<footer>"Positgramm"||Суббота Дарья(2 курс 8 группа)||daria.subbota@icloud.com||Дата изменения: </footer>
+
+<a href="#" class="more">Загрузить еще...</a>
+<footer>"Positgramm"||Суббота Дарья(2 курс 8 группа)||daria.subbota@icloud.com||Дата изменения:</footer>
 
 </body>
+
+<script src="DOM.js"></script>
+
 </html>
