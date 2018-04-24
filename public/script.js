@@ -4,7 +4,7 @@ var photoPosts = [
         description: 'Теперь я узнал КАК может быть по настоящему холодно',
         createdAt: new Date('2018-01-01T15:00:00'),
         author: 'Северный мишка',
-        photoLink: 'images/tn.jpg',
+        photoLink: 'UI/images/tn.jpg',
         likes: ['Отпускная', 'Тлен'],
         hashtags: ['#холод']
     },
@@ -13,7 +13,7 @@ var photoPosts = [
         description: 'Все мерзнут в холодном Минске, а мы на море',
         createdAt: new Date('2018-01-12T12:31:55'),
         author: 'Отпускная',
-        photoLink: 'images/002.jpg',
+        photoLink: 'UI/images/002.jpg',
         likes: ['Северный мишка'],
         hashtags: ['#вОтпуске']
     },
@@ -22,7 +22,7 @@ var photoPosts = [
         description: 'Первая прогулочка с новым другом',
         createdAt: new Date('2018-07-02T13:41:32'),
         author: 'Милашка',
-        photoLink: 'images/003.jpg',
+        photoLink: 'UI/images/003.jpg',
         likes: ['Путешественник'],
         hashtags: ['#первыйВыход']
     },
@@ -31,7 +31,7 @@ var photoPosts = [
         description: 'Вот и кончилось тепло, добро пожаловать дожди',
         createdAt: new Date('2017-01-10T13:44:00'),
         author: 'Тлен',
-        photoLink: 'images/010.jpg',
+        photoLink: 'UI/images/010.jpg',
         likes: ['Астроном'],
         hashtags: ['#осень']
     },
@@ -40,7 +40,7 @@ var photoPosts = [
         description: 'Самый лучший подарок на 18-летие',
         createdAt: new Date('2018-12-12T10:43:10'),
         author: 'Мечтательница',
-        photoLink: 'images/011.jpg',
+        photoLink: 'UI/images/011.jpg',
         likes: ['Мария Антуанэтта', 'Астроном'],
         hashtags: ['#подарок']
     },
@@ -49,7 +49,7 @@ var photoPosts = [
         description: 'Решил вспомнить прошлое ',
         createdAt: new Date('2015-03-17T02:10:05'),
         author: 'Путешественник',
-        photoLink: 'images/004.jpg',
+        photoLink: 'UI/images/004.jpg',
         likes: ['Астроном', 'Дзен'],
         hashtags: ['#прошлое']
     },
@@ -58,7 +58,7 @@ var photoPosts = [
         description: 'Все фазы лунного цикла, выглядит замечательно',
         createdAt: new Date('2018-01-12T24:00:00'),
         author: 'Астроном',
-        photoLink: 'images/025.jpg',
+        photoLink: 'UI/images/025.jpg',
         likes: ['Северный мишка'],
         hashtags: ['#впечатления']
     },
@@ -67,7 +67,7 @@ var photoPosts = [
         description: 'Решила вспомнить детство',
         createdAt: new Date('2018-07-04T16:07:15'),
         author: 'Мария Антуанэтта',
-        photoLink: 'images/023.jpg',
+        photoLink: 'UI/images/023.jpg',
         likes: ['Мария Антуанэтта', 'Астроном'],
         hashtags: ['#детскийВострог']
     },
@@ -76,7 +76,7 @@ var photoPosts = [
         description: 'Решила все бросить и попутешествовать',
         createdAt: new Date('2010-09-19T16:00:03'),
         author: 'Дзен',
-        photoLink: 'images/021.jpg',
+        photoLink: 'UI/images/021.jpg',
         likes: ['Мария Антуанэтта', 'Астроном'],
         hashtags: ['#путешествие']
     },
@@ -85,7 +85,7 @@ var photoPosts = [
         description: 'Море впечатлений',
         createdAt: new Date('2010-09-18T16:01:56'),
         author: 'Дзен',
-        photoLink: 'images/020.jpg',
+        photoLink: 'UI/images/020.jpg',
         likes: ['Мария Антуанэтта'],
         hashtags: ['#путешествие']
     },
@@ -219,7 +219,7 @@ window.func = (function () {
             return photoPosts.sort((elem1, elem2) => elem2.createdAt - elem1.createdAt);
         },
         getPhotoPost: function (id) {
-            return photoPosts.find(elem => elem.id == id);
+            return photoPosts.find(elem => elem.id === id);
         },
         validatePhotoPost: function (photoPost) {
             if (typeof photoPost.description !== 'string' || photoPost.description.length > 200 || photoPost.description.length === 0)
@@ -276,7 +276,7 @@ window.func = (function () {
         },
         editPhotoPost: function (id, photoPost) {
             if (this.validateEditedPost(photoPost)) {
-                let index = photoPosts.findIndex(elem => elem.id == id);
+                let index = photoPosts.findIndex(elem => elem.id === id);
                 if (index !== -1) {
                     if (photoPost.description) photoPosts[index].description = photoPost.description;
                     if (photoPost.photoLink) photoPosts[index].photoLink = photoPost.photoLink;
@@ -287,7 +287,7 @@ window.func = (function () {
             return false;
         },
         removePhotoPost: function (id) {
-            let index = photoPosts.findIndex(elem => elem.id == id);
+            let index = photoPosts.findIndex(elem => elem.id === id);
             if (index !== -1) {
                 photoPosts.splice(index, 1);
                 return true;

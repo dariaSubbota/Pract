@@ -19,7 +19,7 @@ var options = {
     minute: 'numeric'
 };
 
-window.domModul = (function () {
+window.domModule = (function () {
     let user = 'Тлен';
 
     let content = document.getElementsByClassName("postsFlex")[0];
@@ -55,16 +55,16 @@ window.domModul = (function () {
             if (user) {
                 post.likes.forEach((elem) => {
                     if (elem === user)
-                       heart = '<div class="likeInfo"><a class="button heart" href="#" ></a>' + post.likes.length + '</div>';
+                        heart = '<div class="likeInfo"><a class="button heart" href="#" ></a>' + post.likes.length + '</div>';
                 });
             }
             let isOwner = '<div class="editDelete"><a class="button tick" href="#"></a>' +
                 '<a class="button cross" href="#"></a></div>';
-            div.innerHTML = '<img class="image" src="' + post.photoLink + '" alt="photo"></div>' +heart
-
-                + '<div class="info">' + post.author + ' | ' + post.createdAt.toLocaleString("ru", options)+'<p>'+ post.description + '</p></div>';
+            div.innerHTML = '<img class="image" src="' + post.photoLink + '" alt="photo"></div>' + heart
+                + '<div class="info">' + post.author + ' | ' + post.createdAt.toLocaleString("ru", options) + '<p>' +
+                post.description + '</p>' + '<p>' + post.hashtags + '</p></div>';
             if (user === post.author)
-                div.innerHTML =div.innerHTML+isOwner;
+                div.innerHTML = div.innerHTML + isOwner;
             return div;
         },
         addPost: function (post) {
@@ -99,36 +99,39 @@ window.domModul = (function () {
         }
     }
 })();
+
 function getPhotoPosts(skip = 0, top = 10, filterConfig) {
     let content = document.getElementsByClassName('postsFlex')[0];
-    document.body.removeChild(document.body.children[0]);
+    //document.body.removeChild(document.body.children[1]);
     //content.innerHTML = ";
-    domModul.getPosts(skip, top, filterConfig);
+    domModule.getPosts(skip, top, filterConfig);
 }
 
 function addPhotoPost(post) {
-    if (domModul.addPost(post))
+    if (domModule.addPost(post))
         return true;
     return false;
 }
 
 function editPhotoPost(id, post) {
-    if (domModul.editPost(id, post))
+    if (domModule.editPost(id, post))
         return true;
     return false
 }
 
 function removePhotoPost(id) {
-    if (domModul.removePost(id))
+    if (domModule.removePost(id))
         return true;
     return false;
 }
 
+//domModule.changeUser(null);
 getPhotoPosts();
 console.log("You can try:");
-console.log("domModul.changeUser(null);");
-console.log("domModul.changeUser('Милашка');");
+console.log("domModule.changeUser(null);");
+console.log("domModule.changeUser('Милашка');");
+
 console.log("addPhotoPost(postForAdd);");
 console.log("removePhotoPost(5);");
 console.log("editPhotoPost(2, postForEdit);");
-console.log("getPhotoPosts(undefined, undefined, {hashtags: ['#природа']});");
+console.log("getPhotoPosts(undefined, undefined, {hashtags: ['#подарок']});");
