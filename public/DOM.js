@@ -1,18 +1,5 @@
-let postForAdd = {
-    id: '21',
-    description: 'Как красиво!',
-    createdAt: new Date('2018-03-02T21:00:00'),
-    author: 'Снежный барс',
-    photoLink: 'https://storge.pic2.me/c/1360x800/547/57cc656e4798d.jpg',
-    likes: ['Фотограф', 'Выпускница'],
-    hashtags: ['#природа']
-}
-let postForEdit = {
-    likes: ['Фотограф', 'Выпускница'],
-    hashtags: ['#природа']
-}
-
 var options = {
+    year:'numeric',
     month: 'long',
     day: 'numeric',
     hour: 'numeric',
@@ -20,78 +7,125 @@ var options = {
 };
 
 window.domModule = (function () {
-    let user = 'Тлен';
-
-    let content = document.getElementsByClassName("postsFlex")[0];
+    let user = null;
+    let filter;
+    let content;
     return {
+        setContent: function () {
+            content = document.getElementsByClassName("content")[0];
+        },
+
         changeUser: function (username) {
             if (username === null || typeof username === undefined) {
-                user = username;
-                document.getElementsByClassName('welcome')[0].style.display = 'none';
-                document.getElementsByClassName('add')[0].style.display = 'none';
+                user = null;
+                document.getElementsByClassName('sign')[0].setAttribute('onclick', 'setLogInPage()');
+                document.getElementsByClassName('sign')[0].innerHTML = '<i class="fa fa-sign-in signicon fa-3x" aria-hidden="true"></i>';
+                document.getElementsByClassName('user-name-full')[0].style.display = 'none';
+                document.getElementsByClassName('add-photo')[0].style.display = 'none';
             }
             else {
-                if (user === null) {
-                    document.getElementsByClassName('add')[0].style.display = 'flex';
+                if (user === null || typeof username === undefined) {
+                    document.getElementsByClassName('sign')[0].setAttribute('onclick', 'logOut();');
+                    document.getElementsByClassName('sign')[0].innerHTML = '<i class="fa fa-sign-out signicon fa-3x" aria-hidden="true"></i>';
+                    document.getElementsByClassName('add-photo')[0].style.display = 'flex';
                 }
                 user = username;
-                let nameFull = document.getElementsByClassName('welcome')[0];
-                if (document.body.clientWidth < 830)
-                    nameFull.style.display = 'none';
-                else if (user.length > 13) {
+                let nameFull = document.getElementsByClassName('user-name-full')[0];
+                if (document.body.clientWidth < 830) nameFull.style.display = 'none';
+                else {
+                    if (user.length > 13) {
+                        nameFull.style.width = '200px';
+
+                    }
                     nameFull.style.display = 'flex';
-                    nameFull.style.width = '200px';
                     nameFull.textContent = user;
                 }
+
             }
-            getPhotoPosts()
+            document.getElementsByClassName('content')[0].innerHTML = '';
+            getPhotoPosts();
             return true;
         },
+        getUser: function () {
+            return user;
+        },
+        setUser: function () {
+            if (localStorage.getItem('user') === 'undefined') {
+                this.changeUser(null);
+            }
+            else this.changeUser(localStorage.getItem('user'));
+        },
+        setFilter: function (newFilter) {
+            filter = newFilter;
+        },
         createPost: function (post) {
+
             let div = document.createElement('div');
             div.id = post.id;
-            div.className = "photoFlex";
-            let heart = '<div class="likeInfo"><a class="button heart" href="#" ></a>' + post.likes.length + '</div>';
+            div.className = "post";
+            let heart = '<i class="fa fa-heart-o fa-2x" aria-hidden="true"></i>';
             if (user) {
                 post.likes.forEach((elem) => {
                     if (elem === user)
-                        heart = '<div class="likeInfo"><a class="button heart" href="#" ></a>' + post.likes.length + '</div>';
+                        heart = '<i class="fa fa-heart fa-2x heart" aria-hidden="true"></i>';
                 });
             }
-            let isOwner = '<div class="editDelete"><a class="button tick" href="#"></a>' +
-                '<a class="button cross" href="#"></a></div>';
-            div.innerHTML = '<img class="image" src="' + post.photoLink + '" alt="photo"></div>' + heart
-                + '<div class="info">' + post.author + ' | ' + post.createdAt.toLocaleString("ru", options) + '<p>' +
-                post.description + '</p>' + '<p>' + post.hashtags + '</p></div>';
-            if (user === post.author)
-                div.innerHTML = div.innerHTML + isOwner;
+            let isOwner =
+                `<div class="edit-delete">
+                    <a class="edit" href="#" onclick="setEditPostPage(this)">
+                        <i class="fa fa-pencil fa-2x" aria-hidden="true"></i>
+                    </a>
+                    <a class="delete" href="#" onclick="deleteEvent(this)">
+                         <i class="fa fa-trash-o iDelete fa-2x" aria-hidden="true"></i>
+                     </a>
+               </div>`;
+            div.innerHTML = `
+                <img class="image-position" src="` + post.photoLink + `" alt="photo">
+                <div class="image-owner-data-info">
+                    <span class="user-name-label">` + post.author + ' | ' + post.createdAt.toLocaleString("ru", options) + `</span>
+                    <div class="likes">
+                        <a class="heart-div" href="#" onclick="likeIt(this)">`
+                + heart + `
+                        </a>
+                        <div class="likes-count">
+                            <span class="count-of-likes">`+ post.likes.length + `</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-text">
+                    <p class="text-info">` + post.description + `| ` + post.hashtags + `</p>
+                </div>`;
+            if (user === post.author) div.innerHTML = isOwner + div.innerHTML;
             return div;
         },
         addPost: function (post) {
-            if (func.addPhotoPost(post)) {
-                content.innerHTML = null;
-                this.getPosts();
+            if (funcModule.addPhotoPost(post)) {
                 return true;
             }
             return false;
         },
         getPosts: function (skip = 0, top = 10, filterConfig) {
-            let posts = func.getPhotoPosts(skip, top, filterConfig);
+            if (filter && !filterConfig) {
+                filterConfig = filter;
+            }
+            document.querySelector('.load-more-button').style.display = 'block';
+            let posts = funcModule.getPhotoPosts(skip, top, filterConfig);
+            filter = filterConfig;
             posts.forEach((elem) => {
                 content.appendChild(this.createPost(elem));
             });
         },
         editPost: function (id, post) {
-            if (func.editPhotoPost(id, post)) {
-                content.replaceChild(this.createPost(func.getPhotoPost(id)), document.getElementById(id));
+            if (funcModule.editPhotoPost(id, post)) {
+                setMainPageFromAddEdit();
                 return true;
             }
             return false;
         },
         removePost: function (id) {
-            if (func.removePhotoPost(id)) {
+            if (funcModule.removePhotoPost(id)) {
                 content.removeChild(document.getElementById(id));
-                let count = document.getElementsByClassName('photoFlex').length;
+                let count = document.getElementsByClassName('post').length;
                 this.getPosts(count, 1);
                 return true;
             }
@@ -101,37 +135,29 @@ window.domModule = (function () {
 })();
 
 function getPhotoPosts(skip = 0, top = 10, filterConfig) {
-    let content = document.getElementsByClassName('postsFlex')[0];
-    //document.body.removeChild(document.body.children[1]);
-    //content.innerHTML = ";
-    domModule.getPosts(skip, top, filterConfig);
-}
-
-function addPhotoPost(post) {
-    if (domModule.addPost(post))
+    if(domModule.getPosts(skip, top, filterConfig)) {
         return true;
+    }
     return false;
 }
-
-function editPhotoPost(id, post) {
-    if (domModule.editPost(id, post))
+function addPhotoPost(post) {
+    if (domModule.addPost(post)) {
         return true;
+    }
+    return false;
+}
+function editPhotoPost(id, post) {
+    if (domModule.editPost(id, post)) {
+        return true;
+    }
     return false
 }
-
 function removePhotoPost(id) {
-    if (domModule.removePost(id))
+    if (domModule.removePost(id)) {
         return true;
+    }
     return false;
 }
 
-//domModule.changeUser(null);
-getPhotoPosts();
-console.log("You can try:");
-console.log("domModule.changeUser(null);");
-console.log("domModule.changeUser('Милашка');");
-
-console.log("addPhotoPost(postForAdd);");
-console.log("removePhotoPost(5);");
-console.log("editPhotoPost(2, postForEdit);");
-console.log("getPhotoPosts(undefined, undefined, {hashtags: ['#подарок']});");
+setMainPage();
+domModule.setUser();

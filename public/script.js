@@ -180,7 +180,7 @@ var photoPosts = [
         hashtags: ['#котяра']
     }
 ];
-window.func = (function () {
+window.funcModule = (function () {
     return {
         getPhotoPosts: function (skip = 0, top = 10, filterConfig) {
             let result;
