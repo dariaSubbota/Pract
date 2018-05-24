@@ -6,25 +6,20 @@ window.getHTML = (function () {
         HeaderFooter: function () {
             return `
             <header>
-                
-                    <div>
-                        <a class="posit">Positgramm</a>
-                    </div>
-                
+                <a class="posit">Positgramm</a>
                 <div class="add-photo">
-                
                     <a class="add-button" onclick="setAddPostPage()" href="#">Добавить фото</a>
                 </div>
                 <div class="user-name">
                     <div class="user-name-full"></div>
                     <a class="sign" href="#" onclick="setLogInPage();">
-                        <i class="fa fa-sign-in signicon fa-3x" aria-hidden="true"></i>
+                        <i class="fa fa-sign-in signicon2 fa-3x" aria-hidden="true"></i>
                     </a>
                 </div>
             </header>
             
             <footer>
-                "Positgramm"||Суббота Дарья(2 курс 8 группа)||daria.subbota@icloud.com||Дата изменения: 23.05.18
+                "Positgramm"||Суббота Дарья(2 курс 8 группа)||daria.subbota@icloud.com||Дата изменения: 24.05.18
             </footer>`;
         },
         /**
@@ -53,7 +48,7 @@ window.getHTML = (function () {
         QuestionPage: function () {
             return `
                 <div class="question-inner">
-                    <p>Вы хотите удалить данный пост?</p>
+                    <p>Вы действительно хотите удалить данный пост?</p>
                     <div class="choose">
                         <button onclick="deleteOk()" class="delete-button">Удалить</button>
                         <button onclick="deleteCancel()" class="cancel-button">Отмена</button> 
@@ -67,7 +62,6 @@ window.getHTML = (function () {
         AgreePage: function () {
             return `
                 <div class="agreement-block">
-                
                     <p class="agree-info">Проверьте корректность <br>введенных данных</p>
                     <button onclick="agreeOk()" class="agree-button">Хорошо</button> 
                 </div>
@@ -90,7 +84,7 @@ window.getHTML = (function () {
                             </a>
                         </img>   
                     </div>
-                    <input class="image-link-input" type="text" onchange="setImageLink();" placeholder="место для ссылки">
+                    <input class="image-link-input" type="text" onchange="setImageLink();" placeholder="ссылка">
                 </div>
                 <div class="description-form">
                     <span class="to-do-info">Описание:</span>
@@ -117,7 +111,7 @@ window.getHTML = (function () {
                             </a>
                         </img>
                     </div>
-                    <input class="image-link-input" type="text" onchange="setImageLink();" placeholder="место для ссылки">
+                    <input class="image-link-input" type="text" onchange="setImageLink();" placeholder="ссылка">
                 </div>
                 <div class="description-form">
                     <span class="to-do-info">Описание:</span>

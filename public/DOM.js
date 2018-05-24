@@ -20,6 +20,7 @@ window.domModule = (function () {
                 user = null;
                 document.getElementsByClassName('sign')[0].setAttribute('onclick', 'setLogInPage()');
                 document.getElementsByClassName('sign')[0].innerHTML = '<i class="fa fa-sign-in signicon fa-3x" aria-hidden="true"></i>';
+
                 document.getElementsByClassName('user-name-full')[0].style.display = 'none';
                 document.getElementsByClassName('add-photo')[0].style.display = 'none';
             }
@@ -35,7 +36,6 @@ window.domModule = (function () {
                 else {
                     if (user.length > 13) {
                         nameFull.style.width = '200px';
-
                     }
                     nameFull.style.display = 'flex';
                     nameFull.textContent = user;
@@ -104,7 +104,7 @@ window.domModule = (function () {
             }
             return false;
         },
-        getPosts: function (skip = 0, top = 10, filterConfig) {
+        getPosts: function (skip = 0, top = 8, filterConfig) {
             if (filter && !filterConfig) {
                 filterConfig = filter;
             }
@@ -134,7 +134,7 @@ window.domModule = (function () {
     }
 })();
 
-function getPhotoPosts(skip = 0, top = 10, filterConfig) {
+function getPhotoPosts(skip = 0, top = 8, filterConfig) {
     if(domModule.getPosts(skip, top, filterConfig)) {
         return true;
     }
