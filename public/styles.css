@@ -19,9 +19,13 @@ header{
     display: flex;
     z-index: 3;
 }
+.camera2{
+    color: #e7f5ff;
+}
 .posit {
+    top: 30px;
     font-family: "Italy B", monospace;
-    font-size: 300%;
+    font-size: 400%;
     float: left;
 }
 .icon{
@@ -314,8 +318,8 @@ header{
     transition: all 0.5s linear 0s;
 }
 .load-more-button:hover,.load-more-button:focus{
-     background-position: 0 -102%;
- }
+    background-position: 0 -102%;
+}
 footer{
     text-align: center;
     font-family: monospace, "Comic Sans MS";

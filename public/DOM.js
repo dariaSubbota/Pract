@@ -1,5 +1,4 @@
 var options = {
-    year:'numeric',
     month: 'long',
     day: 'numeric',
     hour: 'numeric',
@@ -8,6 +7,7 @@ var options = {
 
 window.domModule = (function () {
     let user = null;
+    let userShort = null;
     let filter;
     let content;
     return {
@@ -19,8 +19,7 @@ window.domModule = (function () {
             if (username === null || typeof username === undefined) {
                 user = null;
                 document.getElementsByClassName('sign')[0].setAttribute('onclick', 'setLogInPage()');
-                document.getElementsByClassName('sign')[0].innerHTML = '<i class="fa fa-sign-in signicon fa-3x" aria-hidden="true"></i>';
-
+                document.getElementsByClassName('sign')[0].innerHTML = '<i class="fa fa-sign-in signicon2 fa-3x" aria-hidden="true"></i>';
                 document.getElementsByClassName('user-name-full')[0].style.display = 'none';
                 document.getElementsByClassName('add-photo')[0].style.display = 'none';
             }
@@ -82,7 +81,7 @@ window.domModule = (function () {
             div.innerHTML = `
                 <img class="image-position" src="` + post.photoLink + `" alt="photo">
                 <div class="image-owner-data-info">
-                    <span class="user-name-label">` + post.author + ' | ' + post.createdAt.toLocaleString("ru", options) + `</span>
+                    <span class="user-name-label">` + post.author + ' | ' + post.createdAt.toLocaleString("ru", options) + `|` + post.hashtags+ `</span>
                     <div class="likes">
                         <a class="heart-div" href="#" onclick="likeIt(this)">`
                 + heart + `
@@ -93,7 +92,7 @@ window.domModule = (function () {
                     </div>
                 </div>
                 <div class="image-text">
-                    <p class="text-info">` + post.description + `| ` + post.hashtags + `</p>
+                    <p class="text-info">` + post.description + `</p>
                 </div>`;
             if (user === post.author) div.innerHTML = isOwner + div.innerHTML;
             return div;
@@ -104,7 +103,7 @@ window.domModule = (function () {
             }
             return false;
         },
-        getPosts: function (skip = 0, top = 8, filterConfig) {
+        getPosts: function (skip = 0, top = 10, filterConfig) {
             if (filter && !filterConfig) {
                 filterConfig = filter;
             }
@@ -134,7 +133,7 @@ window.domModule = (function () {
     }
 })();
 
-function getPhotoPosts(skip = 0, top = 8, filterConfig) {
+function getPhotoPosts(skip = 0, top = 10, filterConfig) {
     if(domModule.getPosts(skip, top, filterConfig)) {
         return true;
     }

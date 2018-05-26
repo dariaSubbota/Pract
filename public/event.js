@@ -25,8 +25,8 @@ function reloadMain() {
 }
 function loadMore(link) {
     const count = document.getElementsByClassName('post').length;
-    getPhotoPosts(count, 8);
-    if (count + 8 >= photoPosts.length) {
+    getPhotoPosts(count, 10);
+    if (count + 10 >= photoPosts.length) {
         link.style.display = 'none';
     }
 }
@@ -55,7 +55,7 @@ function addPhoto() {
     const likes = [];
     let photoLink;
     const srcLength = document.querySelector('.addphoto-image-size').src.length;
-    if (document.querySelector('.addphoto-image-size').src.substr(srcLength - 16) === 'img/addPhoto.jpg' || document.querySelector('.addphoto-image-size').height === 16) {
+    if (document.querySelector('.addphoto-image-size').src.substr(srcLength - 16) === 'UI/images/addPhoto.jpg' || document.querySelector('.addphoto-image-size').height === 16) {
         photoLink = null;
     }
     else photoLink = document.querySelector('.addphoto-image-size').src;
@@ -85,8 +85,8 @@ function editPhoto() {
     description = description.replace(/\n/g, '<br>');
     if (hashtags === null) hashtags = [];
     let post;
-    if (photoLink) post = { description, hashtags, photoLink };
-    else post = { description, hashtags };
+    if (photoLink) post = { description, photoLink };
+    else post = { description };
     const id = document.querySelector('.add-form').getAttribute('id');
     if (!editPhotoPost(id, post)) {
         setAgreementPage();

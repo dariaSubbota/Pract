@@ -6,7 +6,10 @@ window.getHTML = (function () {
         HeaderFooter: function () {
             return `
             <header>
-                <a class="posit">Positgramm</a>
+                <a href="#" onclick="reloadMain()" class="logo">
+                    <i class="fa fa-camera-retro camera2 fa-5x"></i>
+                    <a class="posit">Positgramm</a>
+                </a>
                 <div class="add-photo">
                     <a class="add-button" onclick="setAddPostPage()" href="#">Добавить фото</a>
                 </div>
@@ -19,7 +22,7 @@ window.getHTML = (function () {
             </header>
             
             <footer>
-                "Positgramm"||Суббота Дарья(2 курс 8 группа)||daria.subbota@icloud.com||Дата изменения: 24.05.18
+                "Positgramm"||Суббота Дарья(2 курс 8 группа)||daria.subbota@icloud.com||Дата изменения: 26.05.18
             </footer>`;
         },
         /**
@@ -30,10 +33,10 @@ window.getHTML = (function () {
             <div class="search">
                 <div class="search-author-hashtag">
                     <input type="text" maxlength="50" placeholder="Автор" onkeyup="filterByEnter();" class="input1">
-                    <input type="text" maxlength="50" placeholder="#..." onkeyup="filterByEnter();" class="input2">
+                    <input type="text" maxlength="50" placeholder="Хэштеги" onkeyup="filterByEnter();" class="input2">
                 </div>
                 <div class="search-date">
-                    <input type="date" maxlength="20" class="input3" placeholder="ДД/ММ/ГГ">
+                        <input maxlength="20" type="date" class="input3">
                 </div>
                 <input type="submit" class ="Ok" value="Search" onclick="setFilterConfig();"></input>
             </div>
@@ -48,7 +51,7 @@ window.getHTML = (function () {
         QuestionPage: function () {
             return `
                 <div class="question-inner">
-                    <p>Вы действительно хотите удалить данный пост?</p>
+                    <p>Вы хотите удалить данный пост?</p>
                     <div class="choose">
                         <button onclick="deleteOk()" class="delete-button">Удалить</button>
                         <button onclick="deleteCancel()" class="cancel-button">Отмена</button> 
@@ -88,7 +91,7 @@ window.getHTML = (function () {
                 </div>
                 <div class="description-form">
                     <span class="to-do-info">Описание:</span>
-                    <textarea id="text-form" onkeypress="return rewatch(this);" rows="6" maxlength="180"></textarea>
+                    <textarea id="text-form"  onkeypress="return rewatch(this);" rows="6" maxlength="180"></textarea>
                     <a href="#" class="submit-button" onclick="addPhoto();">Добавить</a>
                 </div>
             </div>
@@ -115,7 +118,7 @@ window.getHTML = (function () {
                 </div>
                 <div class="description-form">
                     <span class="to-do-info">Описание:</span>
-                    <textarea id="text-form" onkeypress="return rewatch(this);" rows="6" maxlength="180"></textarea>
+                    <textarea id="text-form"  onkeypress="return rewatch(this);" rows="6" maxlength="180"></textarea>
                     <a href="#" class="submit-button" onclick="editPhoto();">Сохранить</a>
                 </div>
             </div>
@@ -126,8 +129,8 @@ window.getHTML = (function () {
          */
         LogInPage: function () {
             return `
-            <div class="main">
-                <img src="img/icon.png" class="icon-link" onclick="setMainPage();"/>
+            <i class="main">
+                <i class="fa fa-camera-retro camera2 fa-5x" onclick="setMainPage();"/></i>
                 <div class="input-block">
                     <div class="text-log-in"><span>ВХОД</span></div>
                     <form onsubmit="signIn()">

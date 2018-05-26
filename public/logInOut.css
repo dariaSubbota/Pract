@@ -30,7 +30,7 @@
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
-    background-color: rgba(138, 43, 226, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 .text-log-in{
     display: flex;
@@ -43,7 +43,7 @@
     font-family: sans-serif;
     width: 100%;
     text-align: center;
-    border-bottom: 1px #e5b6ff solid;
+    border-bottom: 1px gray solid;
 }
 input{
     font-size: larger;
@@ -72,7 +72,7 @@ input{
     margin: 1% 2%;
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
-    background-color: rgba(229, 182, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     overflow: hidden;
     z-index: 0;
     letter-spacing: 2px;
