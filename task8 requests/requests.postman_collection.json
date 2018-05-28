@@ -1,0 +1,178 @@
+{
+	"id": "c68c0a55-b938-44f5-a2b8-d25e4604a95b",
+	"name": "requests",
+	"description": "",
+	"auth": null,
+	"events": null,
+	"variables": [],
+	"order": [
+		"3b8f902a-9754-450f-a429-e37720355709",
+		"ad9e48a0-62ea-450a-b8de-c43eeb223728",
+		"9387effc-8ea4-45fb-842f-d3fa8650afa8",
+		"5602552f-6e55-4b22-822f-d950f5b0c7de",
+		"fe6b6348-0324-43cb-b207-3ff21fe02820"
+	],
+	"folders_order": [],
+	"folders": [],
+	"requests": [
+		{
+			"id": "3b8f902a-9754-450f-a429-e37720355709",
+			"name": "localhost:3012/getPhotoPost?id=10",
+			"url": "localhost:3012/getPhotoPost?id=10",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "id",
+					"value": "10",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"rawModeData": "{\n\t\"description\":\"NEW Море впечатлений\"\n}",
+			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "5602552f-6e55-4b22-822f-d950f5b0c7de",
+			"name": "localhost:3012/removePhotoPost?id=7",
+			"url": "localhost:3012/removePhotoPost?id=7",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				}
+			],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "id",
+					"value": "7",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"rawModeData": "{\n\t\"description\":\"NEW Решила вспомнить детство\"\n}",
+			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "9387effc-8ea4-45fb-842f-d3fa8650afa8",
+			"name": "localhost:3012/editPhotoPost?id=8",
+			"url": "localhost:3012/editPhotoPost?id=8",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "id",
+					"value": "8",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"rawModeData": "{\n\t\"description\":\"NEW Решила вспомнить детство\"\n}",
+			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "ad9e48a0-62ea-450a-b8de-c43eeb223728",
+			"name": "localhost:3012/getPhotoPosts?skip=0&top=3",
+			"url": "localhost:3012/getPhotoPosts?skip=0&top=3",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "skip",
+					"value": "0",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "top",
+					"value": "3",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"rawModeData": "{\n\t\"hashtags\":[\"#детскийВострог\"]\n}",
+			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "fe6b6348-0324-43cb-b207-3ff21fe02820",
+			"name": "localhost:3012/addPhotoPost",
+			"url": "localhost:3012/addPhotoPost",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"rawModeData": "{\n\t\"author\": \"NEW\",\n\t\"description\":\"NEW\",\n\t\"hashtags\":[\"#NEW\"],\n\t\"likes\":[],\n\t\"photoLink\":\"UI/images/021.jpg\"\n}",
+			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
+		}
+	]
+}

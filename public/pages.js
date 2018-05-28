@@ -78,9 +78,9 @@ window.getHTML = (function () {
             <div class="add-form">
                 <div class="photo-form">
                     <div class="addphoto-image">
-                        <img src="UI/images/addPhoto.jpg" class="addphoto-image-size">
+                        <img src="images/addPhoto.jpg" class="addphoto-image-size">
                             <a href="#" onclick="">
-                                <div class="plus" onclick="getFile()">
+                                <div class="plus" onclick="getFile();">
                                     <input type="file" id="img-upload" onchange="updateImageDisplay();" accept="image/*" required />
                                     <span>+</span>
                                 </div>
